@@ -1,0 +1,4 @@
+telegram:
+  bot:
+    username: PookieFinanceTrackerBot
+    token: ${TELEGRAM_BOT_TOKEN}
