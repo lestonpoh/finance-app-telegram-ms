@@ -33,7 +33,7 @@ public class FinanceTrackerBot extends TelegramLongPollingBot {
     public void sendMessage(String message, Long chatId) {
         SendMessage newMessage = new SendMessage();
         newMessage.setChatId(chatId);
-        newMessage.setText("I love u");
+        newMessage.setText(message);
         try {
             execute(newMessage);
         } catch (TelegramApiException e) {
