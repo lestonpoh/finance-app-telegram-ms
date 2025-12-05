@@ -18,6 +18,7 @@ import com.example.telegrambot_ms.bot.FinanceTrackerBot;
 import com.example.telegrambot_ms.client.BackendClient;
 import com.example.telegrambot_ms.enums.BotState;
 import com.example.telegrambot_ms.model.dao.UserBot;
+import com.example.telegrambot_ms.model.dto.IbkrReport;
 import com.example.telegrambot_ms.model.dto.User;
 import com.example.telegrambot_ms.repository.UserBotRepository;
 
@@ -66,25 +67,26 @@ public class CommandHandler {
 
         switch (command) {
             case "/investments":
-                InlineKeyboardButton btn1 = new InlineKeyboardButton();
-                btn1.setText("Register");
-                btn1.setCallbackData("REGISTER");
+                IbkrReport ibkrReport = backendClient.getIbkrInfo(userBot.getToken());
+                // InlineKeyboardButton btn1 = new InlineKeyboardButton();
+                // btn1.setText("Register");
+                // btn1.setCallbackData("REGISTER");
 
-                InlineKeyboardButton btn2 = new InlineKeyboardButton();
-                btn2.setText("Cancel");
-                btn2.setCallbackData("CANCEL");
+                // InlineKeyboardButton btn2 = new InlineKeyboardButton();
+                // btn2.setText("Cancel");
+                // btn2.setCallbackData("CANCEL");
 
-                InlineKeyboardMarkup markup = new InlineKeyboardMarkup();
-                markup.setKeyboard(
-                        List.of(
-                                List.of(btn1, btn2)));
+                // InlineKeyboardMarkup markup = new InlineKeyboardMarkup();
+                // markup.setKeyboard(
+                // List.of(
+                // List.of(btn1, btn2)));
 
-                SendMessage message1 = new SendMessage();
-                message1.setChatId(chatId);
-                message1.setText("Choose an option:");
-                message1.setReplyMarkup(markup);
+                // SendMessage message1 = new SendMessage();
+                // message1.setChatId(chatId);
+                // message1.setText("Choose an option:");
+                // message1.setReplyMarkup(markup);
 
-                bot.execute(message1);
+                // bot.execute(message1);
                 // userBotRepository.save(UserBot.builder()
                 // .id(userBot.getId())
                 // .telegramId(userBot.getTelegramId())
