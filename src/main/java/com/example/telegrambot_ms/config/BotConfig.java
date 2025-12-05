@@ -10,14 +10,10 @@ import com.example.telegrambot_ms.bot.FinanceTrackerBot;
 @Configuration
 public class BotConfig {
     @Bean
-    public TelegramBotsApi telegramBotsApi() throws Exception {
-        return new TelegramBotsApi(DefaultBotSession.class);
+    public TelegramBotsApi telegramBotsApi(FinanceTrackerBot bot) throws Exception {
+        TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+        botsApi.registerBot(bot);
+        return botsApi;
     }
 
-    @Bean
-    public FinanceTrackerBot registerBot(TelegramBotsApi telegramBotsApi,
-            FinanceTrackerBot bot) throws Exception {
-        telegramBotsApi.registerBot(bot);
-        return bot;
-    }
 }

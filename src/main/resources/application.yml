@@ -2,3 +2,23 @@ telegram:
   bot:
     username: PookieFinanceTrackerBot
     token: ${TELEGRAM_BOT_TOKEN}
+spring:
+  data:
+    mongodb:
+      uri: uri
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: pookiesmtp@gmail.com
+    password: tewi rrfy pegl tfhw
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+api:
+  backend: http://backend-financeapp:8080
+
+internal:
+  secret: super-secret-123
