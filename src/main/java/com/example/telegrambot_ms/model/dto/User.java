@@ -1,8 +1,8 @@
 package com.example.telegrambot_ms.model.dto;
 
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 public class User {
     private String email;
     private String username;
