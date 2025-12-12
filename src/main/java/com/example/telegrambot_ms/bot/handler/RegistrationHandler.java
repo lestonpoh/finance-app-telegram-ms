@@ -63,7 +63,6 @@ public class RegistrationHandler {
                 } else {
                     bot.sendMessage("Invalid code or code has expired. Try again", chatId);
                 }
-
                 break;
             // this should not be exposed, only for debugging
             default:

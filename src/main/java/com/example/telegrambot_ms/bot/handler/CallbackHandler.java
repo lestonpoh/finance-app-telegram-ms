@@ -12,23 +12,20 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-public class TextHandler {
-    private final RegistrationHandler registerHandler;
+public class CallbackHandler {
     private final InvestmentHandler investmentHandler;
 
-    public void handleText(long chatId, String text, UserBot userBot, FinanceTrackerBot bot) {
+    public void handleCallback(long chatId, String callback, UserBot userBot, FinanceTrackerBot bot) {
         BotState botState = Optional.ofNullable(userBot)
                 .map(UserBot::getBotState)
                 .orElse(null);
-        // handle text based on bot state
+        // handle callback based on bot state
         if (botState == null) {
             bot.sendMessage(
                     "I do not understand what you mean, start a flow using a command",
                     chatId);
-        } else if (botState.getStateType() == "registration") {
-            registerHandler.handleRegister(text, chatId, userBot, bot);
         } else if (botState.getStateType() == "investments") {
-            investmentHandler.handleInvestment(text, chatId, userBot, bot);
+            investmentHandler.handleInvestment(callback, chatId, userBot, bot);
         }
     }
 }
